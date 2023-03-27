@@ -16,7 +16,7 @@ session_start();
 
         function loguear(){
 
-            $us = $this->user;
+            $us = $this->use;
             $ps = $this->pass;
 
             $us1 = $this->user;
@@ -27,6 +27,7 @@ session_start();
                 $_SESSION['usuario'] = $this->use;
                 return $this->cadena;
             }else{
+                $_SESSION['logged_in'] = false;
                 return $this->cadena2;
             }
             

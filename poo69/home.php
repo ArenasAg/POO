@@ -1,7 +1,7 @@
 <?php
 session_start();
   if(isset($_SESSION['logged_in'])){
-    include_once('Process.php');
+    include_once('./db/Process.php');
     $array = new Arrays();
     $arrays = $array -> returArray();
     ?>
@@ -13,6 +13,12 @@ session_start();
     <link rel="stylesheet" href="./css/style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
    </head>
 <body>
   <div class="sidebar">
@@ -24,7 +30,11 @@ session_start();
             <?php
             foreach($arrays as $item => $list){?>
               <li>
-                <a href="#" class="active">
+                <a href="<?php if($list['name'] === 'Log out'){
+                  echo "./db/Cerrar_Sesion.php";
+                }else{
+                  echo "#";
+                }?>" class="active">
                   <i class='<?php echo $list['icon'] ?>' ></i>
                   <span class="links_name"><?php echo $list['name'] ?></span>
                 </a>
@@ -220,7 +230,7 @@ session_start();
 </body>
 </html>
 <?php
-  echo '<script language="Javascript">alert("Bienvenido '.$_SESSION['usuario'].'")</script>';
+  echo '<script type="text/javascript">Swal.fire("Iniciar Sesion","Bienvenido '.$_SESSION['usuario'].'", "success")</script>';
   }else{
     header('Location: index.php');
   }
