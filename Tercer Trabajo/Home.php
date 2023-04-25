@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Home</title>
 </head>
-<body class="bg-secondary">
+<body>
     <div class="d-flex align-items-center min-vh-100">
         <div class="container mw-100">
             <div class="row">
@@ -32,11 +33,11 @@
                                 </script>
 
                                 <div class="p-1 text-center">
-                                    <a href="Insert.php" class="btn btn-primary btn-lg w-50">Insert Student</a>
+                                    <a href="Insert.php" class="btn btn-primary btn-lg w-100">Insert Student</a>
                                 </div>
 
                                 <div class="p-1 text-center">
-                                    <a href="Read.php" class="btn btn-primary btn-lg w-50">Search Student</a>
+                                    <a href="Read.php" class="btn btn-primary btn-lg w-100">Search Student</a>
                                 </div>
                                 
                         <?php }else if(isset($_SESSION['normal'])) { ?>
@@ -51,14 +52,14 @@
                                     localStorage.setItem('messageUser', true);
                                 </script>
                                 <div class="p-1 text-center">
-                                    <a href="Read.php" class="btn btn-primary btn-lg w-50">View Students</a>
+                                    <a href="Read.php" class="btn btn-primary btn-lg w-100">View Students</a>
                                 </div>
 
                         <?php }else{
                                     header("Location: Index.php");
                                 }?>
                         <div class="p-1 text-center">
-                            <button class="btn btn-primary btn-lg w-50" onclick="sign_off()">Sign Off</button>
+                            <button class="btn btn-primary btn-lg w-100" onclick="sign_off()">Sign Off</button>
                         </div>
 
                     </fieldset>

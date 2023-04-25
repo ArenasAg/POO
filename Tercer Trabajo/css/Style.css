@@ -1,0 +1,22 @@
+body {
+    background-image: url("../src/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      width: 80%;
+      padding: 0 15px;
+    }
+
+    .btn{
+        width: 100%;
+    }
+
+    #13{
+        width: 100%;
+    }
+  }

@@ -11,7 +11,7 @@ if(isset($_SESSION['admin'])) { ?>
         <link rel="stylesheet" href="css/style.css">
         <title>Update</title>
     </head>
-    <body class="bg-secondary">
+    <body>
         <?php if(isset($_POST['fname'])
             && isset($_POST['fsurname'])
             && isset($_POST['ssurname'])
@@ -34,27 +34,27 @@ if(isset($_SESSION['admin'])) { ?>
                                         </div>
 
                                         <div class="d-none">
-                                            <input id="id" name="id" type="number" value="<?php echo $_POST['id'] ?>">
+                                            <input autocomplete="off" id="id" name="id" type="number" value="<?php echo $_POST['id'] ?>">
                                         </div>
                                         
                                         <div id="1" class="mt-3 d-none border">
-                                            <input id="rfname" name="rfname" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_POST['rfname'] ?>" required>
+                                            <input autocomplete="off" id="rfname" name="rfname" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_POST['rfname'] ?>" required>
                                         </div>
 
                                         <div id="2" class="mt-3 d-none border">
-                                            <input id="rfsurname" name="rfsurname" type="text" placeholder="First Surname" class="form-control" value="<?php echo $_POST['rfsurname'] ?>" required>
+                                            <input autocomplete="off" id="rfsurname" name="rfsurname" type="text" placeholder="First Surname" class="form-control" value="<?php echo $_POST['rfsurname'] ?>" required>
                                         </div>
 
                                         <div id="3" class="mt-3 d-none border">
-                                            <input id="rssurname" name="rssurname" type="text" placeholder="Second Surname" class="form-control" value="<?php echo $_POST['rssurname'] ?>" required>
+                                            <input autocomplete="off" id="rssurname" name="rssurname" type="text" placeholder="Second Surname" class="form-control" value="<?php echo $_POST['rssurname'] ?>" required>
                                         </div>
 
                                         <div id="4" class="mt-3 d-none border">
-                                            <input id="rdocument" name="rdocument" type="number" placeholder="Document" class="form-control" value="<?php echo $_POST['rdocument'] ?>" required>
+                                            <input autocomplete="off" id="rdocument" name="rdocument" type="number" placeholder="Document" class="form-control" value="<?php echo $_POST['rdocument'] ?>" required>
                                         </div>
 
                                         <div id="5" class="mt-3 d-none border">
-                                            <input id="phone" name="phone" type="number" placeholder="Phone" class="form-control" value="<?php echo $_POST['phone'] ?>" required>
+                                            <input autocomplete="off" id="phone" name="phone" type="number" placeholder="Phone" class="form-control" value="<?php echo $_POST['phone'] ?>" required>
                                         </div>
 
                                         <div id="6" class="p-4 text-center d-none">
@@ -62,23 +62,23 @@ if(isset($_SESSION['admin'])) { ?>
                                         </div>
 
                                         <div id="7" class="mt-3 border">
-                                            <input id="fname" name="fname" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_POST['fname'] ?>" required>
+                                            <input autocomplete="off" id="fname" name="fname" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_POST['fname'] ?>" required>
                                         </div>
 
                                         <div id="8" class="mt-3 border">
-                                            <input id="fsurname" name="fsurname" type="text" placeholder="First Surname" class="form-control" value="<?php echo $_POST['fsurname'] ?>" required>
+                                            <input autocomplete="off" id="fsurname" name="fsurname" type="text" placeholder="First Surname" class="form-control" value="<?php echo $_POST['fsurname'] ?>" required>
                                         </div>
 
                                         <div id="9" class="mt-3 border">
-                                            <input id="ssurname" name="ssurname" type="text" placeholder="Second Surname" class="form-control" value="<?php echo $_POST['ssurname'] ?>" required>
+                                            <input autocomplete="off" id="ssurname" name="ssurname" type="text" placeholder="Second Surname" class="form-control" value="<?php echo $_POST['ssurname'] ?>" required>
                                         </div>
 
                                         <div id="10" class="mt-3 border">
-                                            <input id="birth" name="birth" type="date" placeholder="Birthdate" class="form-control" value="<?php echo $_POST['birth'] ?>" required>
+                                            <input autocomplete="off" id="birth" name="birth" type="date" placeholder="Birthdate" class="form-control" value="<?php echo $_POST['birth'] ?>" required>
                                         </div>
 
                                         <div id="11" class="mt-3 border">
-                                            <input id="document" name="document" type="number" placeholder="Document" class="form-control" value="<?php echo $_POST['document'] ?>" required>
+                                            <input autocomplete="off" id="document" name="document" type="number" placeholder="Document" class="form-control" value="<?php echo $_POST['document'] ?>" required>
                                         </div>
 
                                         <div id="12" class="mt-3 border">

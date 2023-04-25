@@ -8,9 +8,10 @@ if(isset($_SESSION['admin'])) { ?>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
         <title>Insert</title>
     </head>
-    <body class="bg-secondary">
+    <body>
         <div class="d-flex align-items-center min-vh-100">
             <div class="container mw-100">
                 <div class="row">
@@ -22,23 +23,23 @@ if(isset($_SESSION['admin'])) { ?>
                                 </div>
 
                                 <div id="1" class="mt-3 d-none border">
-                                    <input id="rfname" name="rfname" type="text" placeholder="Full Name" class="form-control" required>
+                                    <input autocomplete="off" id="rfname" name="rfname" type="text" placeholder="Full Name" class="form-control" required>
                                 </div>
 
                                 <div id="2" class="mt-3 d-none border">
-                                    <input id="rfsurname" name="rfsurname" type="text" placeholder="First Surname" class="form-control" required>
+                                    <input autocomplete="off" id="rfsurname" name="rfsurname" type="text" placeholder="First Surname" class="form-control" required>
                                 </div>
 
                                 <div id="3" class="mt-3 d-none border">
-                                    <input id="rssurname" name="rssurname" type="text" placeholder="Second Surname" class="form-control" required>
+                                    <input autocomplete="off" id="rssurname" name="rssurname" type="text" placeholder="Second Surname" class="form-control" required>
                                 </div>
 
                                 <div id="4" class="mt-3 d-none border">
-                                    <input id="rdocument" name="rdocument" type="text" placeholder="Document" class="form-control" required>
+                                    <input autocomplete="off" id="rdocument" name="rdocument" type="text" placeholder="Document" class="form-control" required>
                                 </div>
 
                                 <div id="5" class="mt-3 d-none border">
-                                    <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control" required>
+                                    <input autocomplete="off" id="phone" name="phone" type="text" placeholder="Phone" class="form-control" required>
                                 </div>
 
                                 <div id="6" class="p-4 text-center d-none">
@@ -46,23 +47,23 @@ if(isset($_SESSION['admin'])) { ?>
                                 </div>
 
                                 <div id="7" class="mt-3 border">
-                                    <input id="fname" name="fname" type="text" placeholder="Full Name" class="form-control" required>
+                                    <input autocomplete="off" id="fname" name="fname" type="text" placeholder="Full Name" class="form-control" required>
                                 </div>
 
                                 <div id="8" class="mt-3 border">
-                                    <input id="fsurname" name="fsurname" type="text" placeholder="First Surname" class="form-control" required>
+                                    <input autocomplete="off" id="fsurname" name="fsurname" type="text" placeholder="First Surname" class="form-control" required>
                                 </div>
 
                                 <div id="9" class="mt-3 border">
-                                    <input id="ssurname" name="ssurname" type="text" placeholder="Second Surname" class="form-control" required>
+                                    <input autocomplete="off" id="ssurname" name="ssurname" type="text" placeholder="Second Surname" class="form-control" required>
                                 </div>
 
                                 <div id="10" class="mt-3 border">
-                                    <input id="birth" name="birth" type="date" placeholder="Birthdate" class="form-control" required>
+                                    <input autocomplete="off" id="birth" name="birth" type="date" placeholder="Birthdate" class="form-control" required>
                                 </div>
 
                                 <div id="11" class="mt-3 border">
-                                    <input id="document" name="document" type="text" placeholder="Document" class="form-control" required>
+                                    <input autocomplete="off" id="document" name="document" type="text" placeholder="Document" class="form-control" required>
                                 </div>
 
                                 <div id="12" class="mt-3 border">

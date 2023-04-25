@@ -1,17 +1,32 @@
 <?php
-include_once('Class.php');
+include_once('../db/db.php');
 
 
-class crud extends StudentResponsibleLogin {
+class crud extends db {
 
-    function login($StudentResponsibleLogin){
-        $db = $StudentResponsibleLogin->connect();
+    private $username;
+    private $password;
+    private $fname;
+    private $fsurname;
+    private $ssurname;
+    private $birth;
+    private $document;
+    private $group;
+    private $rfname;
+    private $rfsurname;
+    private $rssurname;
+    private $rdocument;
+    private $phone;
 
-        $arrayLogin = $StudentResponsibleLogin->getLogin();
+    function login($username, $password){
+        $db = $this->connect();
+
+        $this->username = $username;
+        $this->password = $password;
 
         $consult = $db->prepare('SELECT * FROM user WHERE username = :username AND password = :password');
-        $consult->bindParam('username', $arrayLogin['username']);
-        $consult->bindParam('password', $arrayLogin['password']);
+        $consult->bindParam('username', $this->username);
+        $consult->bindParam('password', $this->password);
         $consult->execute();
 
         if($consult->rowCount() == 0){
@@ -35,14 +50,24 @@ class crud extends StudentResponsibleLogin {
         }
     }
 
-    function insert($StudentResponsibleLogin){
-        $db = $StudentResponsibleLogin->connect();
+    function insert($fname, $fsurname, $ssurname, $birth, $document, $group, $rfname, $rfsurname, $rssurname, $rdocument, $phone){
+        $db = $this->connect();
 
-        $arrayStudent = $StudentResponsibleLogin->getStudent();
-        $arrayResponsible = $StudentResponsibleLogin->getResponsible();
+        $this->fname = $fname;
+        $this->fsurname = $fsurname;
+        $this->ssurname = $ssurname;
+        $this->birth = $birth;
+        $this->document = $document;
+        $this->group = $group;
+
+        $this->rfname = $rfname;
+        $this->rfsurname = $rfsurname;
+        $this->rssurname = $rssurname;
+        $this->rdocument = $rdocument;
+        $this->phone = $phone;
 
         $consult = $db->prepare('SELECT * FROM student WHERE document = :document');
-        $consult->bindParam('document', $arrayStudent['document']);
+        $consult->bindParam('document', $this->document);
         $consult->execute();
 
         if ($consult->rowCount() > 0) {
@@ -51,25 +76,25 @@ class crud extends StudentResponsibleLogin {
             exit();
         }else{
             $insertResponsible = $db->prepare("INSERT INTO responsible (fname, fsurname, ssurname, document, phone) VALUES (:fname, :fsurname, :ssurname, :document, :phone)");
-            $insertResponsible->bindParam('fname', $arrayResponsible['fname']);
-            $insertResponsible->bindParam('fsurname', $arrayResponsible['fsurname']);
-            $insertResponsible->bindParam('ssurname', $arrayResponsible['ssurname']);
-            $insertResponsible->bindParam('document', $arrayResponsible['document']);
-            $insertResponsible->bindParam('phone', $arrayResponsible['phone']);
+            $insertResponsible->bindParam('fname', $this->rfname);
+            $insertResponsible->bindParam('fsurname', $this->rfsurname);
+            $insertResponsible->bindParam('ssurname', $this->rssurname);
+            $insertResponsible->bindParam('document', $this->rdocument);
+            $insertResponsible->bindParam('phone', $this->phone);
             $insertResponsible->execute();
 
             $idResponsible = $db->prepare('SELECT id FROM responsible WHERE document = :document');
-            $idResponsible->bindParam('document', $arrayResponsible['document']);
+            $idResponsible->bindParam('document', $this->rdocument);
             $idResponsible->execute();
             $id = $idResponsible->fetch();
 
             $insertStudent = $db->prepare("INSERT INTO student (fname, fsurname, ssurname, birth, document, grp, fk_responsible) VALUES (:fname, :fsurname, :ssurname, :birth, :document, :group, :id)");
-            $insertStudent->bindParam('fname', $arrayStudent['fname']);
-            $insertStudent->bindParam('fsurname', $arrayStudent['fsurname']);
-            $insertStudent->bindParam('ssurname', $arrayStudent['ssurname']);
-            $insertStudent->bindParam('birth', $arrayStudent['birth']);
-            $insertStudent->bindParam('document', $arrayStudent['document']);
-            $insertStudent->bindParam('group', $arrayStudent['group']);
+            $insertStudent->bindParam('fname', $this->fname);
+            $insertStudent->bindParam('fsurname', $this->fsurname);
+            $insertStudent->bindParam('ssurname', $this->ssurname);
+            $insertStudent->bindParam('birth', $this->birth);
+            $insertStudent->bindParam('document', $this->document);
+            $insertStudent->bindParam('group', $this->group);
             $insertStudent->bindParam('id', $id['id']);
             $insertStudent->execute();
 
@@ -85,8 +110,8 @@ class crud extends StudentResponsibleLogin {
         }
     }
 
-    function searchByDocument($StudentResponsibleLogin, $document){
-        $db = $StudentResponsibleLogin->connect();
+    function searchByDocument($document){
+        $db = $this->connect();
 
         $consult = $db->prepare("SELECT * FROM student WHERE document LIKE :document");
         $consult->bindValue(':document', '%' . $document . '%', PDO::PARAM_STR);
@@ -179,28 +204,38 @@ class crud extends StudentResponsibleLogin {
 
     }
 
-    function update($StudentResponsibleLogin, $id){
-        $db = $StudentResponsibleLogin->connect();
+    function update($id, $fname, $fsurname, $ssurname, $birth, $document, $group, $rfname, $rfsurname, $rssurname, $rdocument, $phone){
+        $db = $this->connect();
 
-        $arrayStudent = $StudentResponsibleLogin->getStudent();
-        $arrayResponsible = $StudentResponsibleLogin->getResponsible();
+        $this->fname = $fname;
+        $this->fsurname = $fsurname;
+        $this->ssurname = $ssurname;
+        $this->birth = $birth;
+        $this->document = $document;
+        $this->group = $group;
+
+        $this->rfname = $rfname;
+        $this->rfsurname = $rfsurname;
+        $this->rssurname = $rssurname;
+        $this->rdocument = $rdocument;
+        $this->phone = $phone;
 
         $updateResponsible = $db->prepare("UPDATE responsible SET fname = :fname, fsurname = :fsurname, ssurname = :ssurname, document = :document, phone = :phone WHERE id = :id");
-        $updateResponsible->bindParam('fname', $arrayResponsible['fname']);
-        $updateResponsible->bindParam('fsurname', $arrayResponsible['fsurname']);
-        $updateResponsible->bindParam('ssurname', $arrayResponsible['ssurname']);
-        $updateResponsible->bindParam('document', $arrayResponsible['document']);
-        $updateResponsible->bindParam('phone', $arrayResponsible['phone']);
+        $updateResponsible->bindParam('fname', $this->rfname);
+        $updateResponsible->bindParam('fsurname', $this->rfsurname);
+        $updateResponsible->bindParam('ssurname',$this->rssurname);
+        $updateResponsible->bindParam('document', $this->rdocument);
+        $updateResponsible->bindParam('phone', $this->phone);
         $updateResponsible->bindParam('id', $id);
         $updateResponsible->execute();
 
         $updateStudent = $db->prepare("UPDATE student SET fname = :fname, fsurname = :fsurname, ssurname = :ssurname, birth = :birth, document = :document, grp = :grp, fk_responsible = :fk_responsible WHERE id = :id");
-        $updateStudent->bindParam('fname', $arrayStudent['fname']);
-        $updateStudent->bindParam('fsurname', $arrayStudent['fsurname']);
-        $updateStudent->bindParam('ssurname', $arrayStudent['ssurname']);
-        $updateStudent->bindParam('birth', $arrayStudent['birth']);
-        $updateStudent->bindParam('document', $arrayStudent['document']);
-        $updateStudent->bindParam('grp', $arrayStudent['group']);
+        $updateStudent->bindParam('fname', $this->rfname);
+        $updateStudent->bindParam('fsurname', $this->rfname);
+        $updateStudent->bindParam('ssurname', $this->rfname);
+        $updateStudent->bindParam('birth', $this->rfname);
+        $updateStudent->bindParam('document', $this->rfname);
+        $updateStudent->bindParam('grp', $this->rfname);
         $updateStudent->bindParam('fk_responsible', $id);
         $updateStudent->bindParam('id', $id);
         $updateStudent->execute();
@@ -216,8 +251,8 @@ class crud extends StudentResponsibleLogin {
         }
     }
 
-    function Read($StudentResponsibleLogin){
-        $db = $StudentResponsibleLogin->connect();
+    function Read(){
+        $db = $this->connect();
 
         $consult = $db->prepare('SELECT * FROM student');
         $consult->execute();
@@ -310,8 +345,8 @@ class crud extends StudentResponsibleLogin {
         echo '</table>';
     }
 
-    function Delete($StudentResponsibleLogin, $id){
-        $db = $StudentResponsibleLogin->connect();
+    function Delete($id){
+        $db = $this->connect();
 
         $consult = $db->prepare('DELETE FROM student WHERE id = :id');
         $consult->bindParam('id', $id);
