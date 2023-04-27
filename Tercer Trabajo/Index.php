@@ -105,7 +105,7 @@ if(isset($_SESSION['admin']) || isset($_SESSION['normal'])) {
         <?php if (isset($_COOKIE['errorLogin'])) {?>
             setTimeout(function() {
                 Swal.fire(
-                    '¡El usuario no existe!',
+                    '¡Username does not exist!',
                     '',
                     'error'
                 )

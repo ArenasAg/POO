@@ -28,8 +28,8 @@ if(isset($_POST['submitLogin'])){
     $crud->insert($fname, $fsurname, $ssurname, $birth, $document, $group, $rfname, $rfsurname, $rssurname, $rdocument, $phone);
 
 }else if(isset($_POST['submitSearch'])){
-    $document = $_POST['docu'];
-    $crud->searchByDocument($document);
+    $search = $_POST['search'];
+    $crud->search($search);
 
 }else if(isset($_POST['submitUpdate'])){
 

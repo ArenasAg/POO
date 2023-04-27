@@ -110,11 +110,11 @@ class crud extends db {
         }
     }
 
-    function searchByDocument($document){
+    function search($search){
         $db = $this->connect();
 
-        $consult = $db->prepare("SELECT * FROM student WHERE document LIKE :document");
-        $consult->bindValue(':document', '%' . $document . '%', PDO::PARAM_STR);
+        $consult = $db->prepare("SELECT * FROM student WHERE CONCAT(id, fname, fsurname, ssurname, birth, document, grp) LIKE :search");
+        $consult->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
         $consult->execute();
         $resultStudent = $consult->fetchAll(PDO::FETCH_ASSOC);
 

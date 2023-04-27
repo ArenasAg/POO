@@ -173,7 +173,7 @@ if(isset($_SESSION['admin'])) { ?>
                     document.getElementById("button").classList.add("btn-danger");
 
                 }else if(document.getElementById("rdocument").value === document.getElementById("document").value){
-                    alert("El documento del padre y el estudiante no pueden ser iguales")
+                    alert("The document of the parent and the student cannot be the same")
                     document.getElementById("rdocument").value = ""
                     document.getElementById("document").value = ""
                 }else{

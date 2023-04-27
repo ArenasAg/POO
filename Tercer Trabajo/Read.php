@@ -24,7 +24,7 @@ if(isset($_SESSION['admin']) || isset($_SESSION['normal'])) { ?>
                                 </div>
                                 
                                 <div class="mt-3 border">
-                                    <input id="docu" name="docu" type="number" placeholder="Search Document" class="form-control" required>
+                                    <input id="search" name="search" type="text" placeholder="Search" class="form-control" required>
                                 </div>
 
                                 <div id="result" class="mt-3 form-control table-responsive">
@@ -98,7 +98,7 @@ if(isset($_SESSION['admin']) || isset($_SESSION['normal'])) { ?>
             <?php if (isset($_COOKIE['update'])) {?>
                         setTimeout(function() {
                             Swal.fire(
-                                '¡Se actualizo correctamente el estudiante!',
+                                '¡The student was successfully updated!',
                                 '',
                                 'success'
                             )
@@ -107,7 +107,7 @@ if(isset($_SESSION['admin']) || isset($_SESSION['normal'])) { ?>
             <?php }else if (isset($_COOKIE['errorUpdate'])) {?>
                         setTimeout(function() {
                             Swal.fire(
-                                '¡No se actualizo ningun dato!',
+                                '¡No data was updated!',
                                 '',
                                 'error'
                             )
@@ -116,7 +116,7 @@ if(isset($_SESSION['admin']) || isset($_SESSION['normal'])) { ?>
             <?php } else if (isset($_COOKIE['delete'])) {?>
                         setTimeout(function() {
                             Swal.fire(
-                                '¡Se elimino correctamente el estudiante!',
+                                '¡The student was successfully deleted!',
                                 '',
                                 'success'
                             )
@@ -125,7 +125,7 @@ if(isset($_SESSION['admin']) || isset($_SESSION['normal'])) { ?>
             <?php } else if (isset($_COOKIE['errorDelete'])) {?>
                         setTimeout(function() {
                             Swal.fire(
-                                '¡No se elimino el estudiante!',
+                                '¡The student was not deleted!',
                                 '',
                                 'error'
                             )
@@ -153,14 +153,14 @@ if(isset($_SESSION['admin']) || isset($_SESSION['normal'])) { ?>
                         $('#result').html(response);
                     }
                 });
-                $('#docu').keyup(function() {
-                    var docu = $(this).val();
+                $('#search').keyup(function() {
+                    var search = $(this).val();
                     var submitSearch = "submitSearch"
-                    if (docu != '') {
+                    if (search != '') {
                         $.ajax({
                             url: 'process/Functions.php',
                             method: 'POST',
-                            data: {docu: docu, submitSearch: submitSearch},
+                            data: {search: search, submitSearch: submitSearch},
                             success: function(response) {
                                 $('#result').html(response);
                             }

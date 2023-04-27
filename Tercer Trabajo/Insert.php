@@ -157,7 +157,7 @@ if(isset($_SESSION['admin'])) { ?>
                     document.getElementById("rdocument").value = ""
                     document.getElementById("document").value = ""
                     Swal.fire(
-                        '¡El documento del padre y el estudiante no pueden ser iguales!',
+                        '¡The parent and student document cannot be the same!',
                         '',
                         'error'
                     );
@@ -186,7 +186,7 @@ if(isset($_SESSION['admin'])) { ?>
                 <?php if (isset($_COOKIE['insert'])) {?>
                             setTimeout(function() {
                                 Swal.fire(
-                                    '¡El estudiante se ha agregado con exito!',
+                                    '¡The student has been added successfully!',
                                     '',
                                     'success'
                                 )
@@ -195,7 +195,7 @@ if(isset($_SESSION['admin'])) { ?>
                 <?php }else if (isset($_COOKIE['exists'])) {?>
                             setTimeout(function() {
                                 Swal.fire(
-                                    '¡El estudiante ya esta registrado!',
+                                    '¡The student is already registered!',
                                     '',
                                     'info'
                                 )
@@ -204,7 +204,7 @@ if(isset($_SESSION['admin'])) { ?>
                 <?php }else if (isset($_COOKIE['error'])) {?>
                             setTimeout(function() {
                                 Swal.fire(
-                                    '¡No se pudo agregar el estudiante!',
+                                    '¡Could not add student!',
                                     '',
                                     'error'
                                 )
