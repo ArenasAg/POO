@@ -75,7 +75,7 @@ class crud extends db {
             header("Location: ../Insert.php");
             exit();
         }else{
-            $insertResponsible = $db->prepare("INSERT INTO responsible (fname, fsurname, ssurname, document, phone) VALUES (:fname, :fsurname, :ssurname, :document, :phone)");
+            $insertResponsible = $db->prepare("INSERT INTO responsible (id, fname, fsurname, ssurname, document, phone) VALUES (null, :fname, :fsurname, :ssurname, :document, :phone)");
             $insertResponsible->bindParam('fname', $this->rfname);
             $insertResponsible->bindParam('fsurname', $this->rfsurname);
             $insertResponsible->bindParam('ssurname', $this->rssurname);
@@ -88,7 +88,7 @@ class crud extends db {
             $idResponsible->execute();
             $id = $idResponsible->fetch();
 
-            $insertStudent = $db->prepare("INSERT INTO student (fname, fsurname, ssurname, birth, document, grp, fk_responsible) VALUES (:fname, :fsurname, :ssurname, :birth, :document, :group, :id)");
+            $insertStudent = $db->prepare("INSERT INTO student (id, fname, fsurname, ssurname, birth, document, grp, fk_responsible) VALUES (null, :fname, :fsurname, :ssurname, :birth, :document, :group, :id)");
             $insertStudent->bindParam('fname', $this->fname);
             $insertStudent->bindParam('fsurname', $this->fsurname);
             $insertStudent->bindParam('ssurname', $this->ssurname);
@@ -230,12 +230,12 @@ class crud extends db {
         $updateResponsible->execute();
 
         $updateStudent = $db->prepare("UPDATE student SET fname = :fname, fsurname = :fsurname, ssurname = :ssurname, birth = :birth, document = :document, grp = :grp, fk_responsible = :fk_responsible WHERE id = :id");
-        $updateStudent->bindParam('fname', $this->rfname);
-        $updateStudent->bindParam('fsurname', $this->rfname);
-        $updateStudent->bindParam('ssurname', $this->rfname);
-        $updateStudent->bindParam('birth', $this->rfname);
-        $updateStudent->bindParam('document', $this->rfname);
-        $updateStudent->bindParam('grp', $this->rfname);
+        $updateStudent->bindParam('fname', $this->fname);
+        $updateStudent->bindParam('fsurname', $this->fsurname);
+        $updateStudent->bindParam('ssurname', $this->ssurname);
+        $updateStudent->bindParam('birth', $this->birth);
+        $updateStudent->bindParam('document', $this->document);
+        $updateStudent->bindParam('grp', $this->group);
         $updateStudent->bindParam('fk_responsible', $id);
         $updateStudent->bindParam('id', $id);
         $updateStudent->execute();

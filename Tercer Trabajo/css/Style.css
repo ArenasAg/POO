@@ -8,7 +8,7 @@ body {
 
   @media (max-width: 768px) {
     .container {
-      width: 80%;
+      width: 75%;
       padding: 0 15px;
     }
 
@@ -16,7 +16,4 @@ body {
         width: 100%;
     }
 
-    #13{
-        width: 100%;
-    }
   }

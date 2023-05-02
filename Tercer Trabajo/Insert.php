@@ -15,7 +15,7 @@ if(isset($_SESSION['admin'])) { ?>
         <div class="d-flex align-items-center min-vh-100">
             <div class="container mw-100">
                 <div class="row">
-                    <div class="col-md-3 mx-auto shadow-lg p-3 mb-5 bg-body rounded">
+                    <div class="col-md-3 mx-auto shadow-lg p-3 mb-5 bg-body rounded mt-3">
                         <form id="form" name="form" method="post" action="process/Functions.php">
                             <fieldset>
                                 <div class="text-center">
@@ -35,11 +35,11 @@ if(isset($_SESSION['admin'])) { ?>
                                 </div>
 
                                 <div id="4" class="mt-3 d-none border">
-                                    <input autocomplete="off" id="rdocument" name="rdocument" type="text" placeholder="Document" class="form-control" required>
+                                    <input autocomplete="off" id="rdocument" name="rdocument" type="number" placeholder="Document" class="form-control" required>
                                 </div>
 
                                 <div id="5" class="mt-3 d-none border">
-                                    <input autocomplete="off" id="phone" name="phone" type="text" placeholder="Phone" class="form-control" required>
+                                    <input autocomplete="off" id="phone" name="phone" type="number" placeholder="Phone" class="form-control" required>
                                 </div>
 
                                 <div id="6" class="p-4 text-center d-none">
@@ -63,7 +63,7 @@ if(isset($_SESSION['admin'])) { ?>
                                 </div>
 
                                 <div id="11" class="mt-3 border">
-                                    <input autocomplete="off" id="document" name="document" type="text" placeholder="Document" class="form-control" required>
+                                    <input autocomplete="off" id="document" name="document" type="number" placeholder="Document" class="form-control" required>
                                 </div>
 
                                 <div id="12" class="mt-3 border">
