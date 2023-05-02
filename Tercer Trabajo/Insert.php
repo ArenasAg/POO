@@ -79,7 +79,7 @@ if(isset($_SESSION['admin'])) { ?>
                                 </div>
 
                                 <div id="13" class="p-4 text-center">
-                                    <button id="button" type="button" class="btn btn-primary w-50" onclick="responsible()">Responsible</button>
+                                    <button id="button" type="button" class="btn btn-primary btn-lg w-49" onclick="responsible()">Responsible</button>
                                 </div>
 
                                 <div class="d-none">

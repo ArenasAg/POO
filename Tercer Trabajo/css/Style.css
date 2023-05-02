@@ -6,6 +6,17 @@ body {
     max-width: 100%;
   }
 
+  @media (max-width: 992px) {
+    .container {
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    .btn{
+        width: 100%;
+    }
+  }
+
   @media (max-width: 768px) {
     .container {
       width: 75%;
@@ -15,5 +26,16 @@ body {
     .btn{
         width: 100%;
     }
+  }
 
+  @media (max-width: 200px) {
+    .container {
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    .btn{
+        font-size: 75%;
+        width: 100%;
+    }
   }
