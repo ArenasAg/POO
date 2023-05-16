@@ -1,6 +1,6 @@
 <?php
 
-include_once('Persona.php');
+include_once('persona.php');
 
 $persona = new Persona("Hola", "K ase", 13);
 

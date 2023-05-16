@@ -1,24 +1,34 @@
 body {
-    background-color: #17a2b8;
-}
- #login-column #login-box {
-    
-    margin-top: 100px;
-    width: 80%;
-    max-width: 600px;
-    height: 320px;
-    border: 1px solid #9C9C9C;
-    background-color: #EAEAEA;
+    background-image: url("../img/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
+.my-custom-title {
+  color: rgb(255, 255, 255); /* Cambia el color del título */
+}
 
+#div {
+  background-color: #352d2d;
+  margin-top: 5%;
+  border-radius: 40px;
+  box-shadow: 20px 30px 30px rgba(253, 253, 253, 0.2);
+}
 
 .bike {
-    position:fixed;
-    width: 800px; height: 500px;
-    margin: auto;
-    background: #17a2b8;
+    top: 47%;
+    position: fixed;
+    left: -500px;
+    width:100%; height: 100%;
+    background-color: transparent !important;
     overflow: hidden;
+    animation: bike 10s cubic-bezier(0,0,0,0) infinite;
   }
     .bike *, .bike *::before, .bike *::after {
       position: absolute;
@@ -29,26 +39,14 @@ body {
       width: 370px; height: 210px;
       z-index: 2;
     }
-      .bike__bike:before {
-        top: 200px; left: -10px;
-        width: 400px; height: 20px;
-        border-radius: 100%;
-        background: #398CA5;
-      }
     .bike__wheel {
       top: 68px; left: 9px;
       width: 140px; height: 140px;
       box-sizing: border-box;
       border-radius: 100%;
       border: 5px solid #27292B;
-      box-shadow: inset 0 1px 0 5px white;
+      box-shadow: inset 0 1px 0 5px rgb(255, 255, 255);
     }
-      .bike__wheel:after {
-        width: 9px; height: 9px;
-        border-radius: 100%;
-        background: white;
-        z-index: 30;
-      }
       .bike__wheel:nth-child(1):after {
         top: 60px; left: 60px;
       }
@@ -66,14 +64,14 @@ body {
       .bike__wheel .bike__needle:nth-child(1) {
         top: 18px; left: 16px;
         height: 42px; width: 42px;
-        border-top: 4px solid white;
-        border-left: 2px solid white;
+        border-top: 4px solid rgb(255, 255, 255);
+        border-left: 2px solid rgb(255, 255, 255);
         border-radius: 100% 0;
       }
         .bike__wheel .bike__needle:nth-child(1):before {
           top: -10px; left: 27px;
           height: 20px; width: 20px;
-          background: #42B0CE;
+          background: #ffffff;
           transform: rotate(-20deg);
         }
         .bike__wheel .bike__needle:nth-child(1):after {
@@ -85,15 +83,15 @@ body {
       .bike__wheel .bike__needle:nth-child(2) {
         top: 31px; left: 72px;
         height: 42px; width: 42px;
-        border-top: 4px solid white;
-        border-left: 2px solid white;
+        border-top: 4px solid rgb(255, 255, 255);
+        border-left: 2px solid rgb(250, 250, 250);
         border-radius: 100% 0;
         transform: rotate(112deg);
       }
         .bike__wheel .bike__needle:nth-child(2):before {
           top: -10px; left: 27px;
           height: 20px; width: 20px;
-          background: #42B0CE;
+          background: #000000;
           transform: rotate(-20deg);
         }
         .bike__wheel .bike__needle:nth-child(2):after {
@@ -646,19 +644,19 @@ body {
       animation: .8s bike-back-arm linear infinite;
       z-index: 1;
     }
-      .bike__arm:nth-child(1):before {
+      .bike__arm:nth-child(1):after {
         top: 40px; left: -11px;
         width: 12px; height: 8px;
         border-radius: 40% 0 0 1px;
-        background: #DC7465;
+        background: #EFA47B;
         transform: rotate(10deg);
       }
-      .bike__arm:nth-child(1):after {
+      .bike__arm:nth-child(1):before {
         width: 15px; height: 45px;
-        background: #DC7465;
+        background: #EFA47B;
         border-radius: 5px 0 0 80%;
         transform: rotate(30deg);
-        box-shadow: inset 0 4px 0 0 #DC7465, inset 2px 0 0 0 #DC7465;
+        box-shadow: inset 0 4px 0 0 #EFA47B, inset 2px 0 0 0 #EFA47B;
       }
     .bike__arm:nth-child(1) .bike__sleeve {
       top: -27px; left: 17px;
@@ -676,9 +674,8 @@ body {
     .bike__arm:nth-child(1) .bike__forearm {
       top: -10px; left: -5px;
       height: 0; width: 4px;
-      border-bottom: 52px solid #DC7465;
-      border-left: 2px solid transparent;
-      border-right: 2px solid transparent;
+      border-bottom: 52px solid #EFA47B;
+      background: #EFA47B;
       transform: rotate(135deg);
       transform-origin: bottom center;
       animation: .8s bike-back-forearm linear infinite;
@@ -700,7 +697,7 @@ body {
     .bike__arm:nth-child(1) .bike__hand {
       top: 4px; left: -1px;
       height: 15px; width: 5px;
-      background: #DC7465;
+      background: #EFA47B;
       border-radius: 3px 3px 0 0;
       transform: rotate(181deg);
       transform-origin: center top;
@@ -711,14 +708,14 @@ body {
         height: 24px; width: 12px;
         border-radius: 0 100% 2px 4px;
         transform: rotate(30deg);
-        background: #DC7465;
+        background: #EFA47B;
       }
       .bike__arm:nth-child(1) .bike__hand:after {
         top: 11px; left: -9px;
         height: 12px; width: 15px;
         border-radius: 4px 0 4px 4px;
         transform: rotate(-30deg);
-        background: #DC7465;
+        background: #EFA47B;
       }
     .bike__head {
       top: 44px; left: 175px;
@@ -895,69 +892,11 @@ body {
         border-left: 14px solid transparent;
         transform: rotate(-7deg);
       }
-    .bike__cloud-1 {
-      top: 70px; left: 300px;
-      width: 60px; height: 60px;
-      border-radius: 100% 100% 0 100%;
-      background: white;
-      animation: .8s bike-cloud linear infinite;
-      animation-delay: -.2s;
-      opacity: .6;
-    }
-      .bike__cloud-1:before {
-        bottom: 0; left: 54px;
-        width: 40px; height: 40px;
-        border-radius: 100% 100% 0 0;
-        background: white;
-      }
-      .bike__cloud-1:after {
-        bottom: 0; left: 90px;
-        width: 30px; height: 30px;
-        border-radius: 100% 100% 100% 0;
-        background: white;
-      }
-    .bike__cloud-2 {
-      top: 172px; left: 110px;
-      width: 34px; height: 34px;
-      border-radius: 100% 100% 100% 0;
-      background: white;
-      animation: .8s bike-cloud linear infinite;
-      animation-delay: -.5s;
-      opacity: .6;
-    }
-      .bike__cloud-2:before {
-        bottom: 0; left: -15px;
-        width: 24px; height: 24px;
-        border-radius: 100% 100% 0 0;
-        background: white;
-      }
-      .bike__cloud-2:after {
-        bottom: 0; left: -30px;
-        width: 20px; height: 20px;
-        border-radius: 100% 100% 0 100%;
-        background: white;
-      }
-    .bike__cloud-3 {
-      top: 172px; left: 630px;
-      width: 34px; height: 34px;
-      border-radius: 100% 100% 100% 0;
-      background: white;
-      animation: .8s bike-cloud linear infinite;
-      animation-delay: -.8s;
-      opacity: .6;
-    }
-      .bike__cloud-3:before {
-        bottom: 0; left: -15px;
-        width: 24px; height: 24px;
-        border-radius: 100% 100% 0 0;
-        background: white;
-      }
-      .bike__cloud-3:after {
-        bottom: 0; left: -30px;
-        width: 20px; height: 20px;
-        border-radius: 100% 100% 0 100%;
-        background: white;
-      }
+
+  @keyframes bike {
+    0% { left: position;}
+    100% { left: calc(100%);}
+  }
   
   @keyframes bike-wheel-1 {
     0% { left: 9px; }
@@ -2238,18 +2177,74 @@ body {
     95% { transform: rotate(181deg); }
     100% { transform: rotate(181deg); }
   }
-  @keyframes bike-cloud {
-    0% { left: 800px; }
-    100% { left: -100px; }
+
+  @media (min-height: 1024px){
+    
+    #div {
+      margin: 0 auto;width: 100%;      max-width: 100%;
+    }
   }
 
+  @media (max-height: 800px ){
+    #image-column{
+      display: none;
+    }
+
+    body{
+        display: flex;
+        align-items: center; /* Centra verticalmente los elementos */
+    }
+
+    .container-fluid{
+      display: flex;
+        align-items: center; /* Centra verticalmente los elementos */
+        justify-content: center; 
+    }
+
+    .col-md-6{
+      width: 100%;
+    }
+
+    #div {
+      width: 100%;
+    }
+  }
+  
   @media (max-width: 767px){
     #image-column{
         display: none;
     }
-    #login{
-        justify-content: center;
+
+    body{
         text-align: center;
+        justify-content: center;
         align-items: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        background-image: none;
+        background-color: #000000;
+    }
+
+
+    #div{
+      flex: 1;
+      border-left: #000000;
+      border-radius: 0;
+      background-color: transparent;
+      box-shadow:none;
+      border-top: white solid ;
+      border-bottom: white solid ;
+    }
+
+    #div p,label{
+      text-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
+    }
+    #div button{
+      box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
     }
   }
+  
