@@ -1,0 +1,169 @@
+css triangulo:
+.triangulo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.triangulo {
+  position: relative;
+  margin: 0 30px;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 82px solid;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.valor {
+  font-size: 18px;
+  margin: 0;
+  margin-top: 180px;
+}
+
+.nombre {
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+html triangulo:
+<div class="triangulo-container">
+  <div class="triangulo" [ngStyle]="{ 'border-bottom-color': coloresTriangulo[0].color }">
+    <div class="content">
+      <p class="valor">{{ valor1 }}</p>
+      <div class="nombre">
+        <p>{{ coloresTriangulo[0].nombre }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="triangulo" [ngStyle]="{ 'border-bottom-color': coloresTriangulo[1].color }">
+    <div class="content">
+      <p class="valor">{{ valor2 }}</p>
+      <div class="nombre">
+        <p>{{ coloresTriangulo[1].nombre }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="triangulo" [ngStyle]="{ 'border-bottom-color': coloresTriangulo[2].color }">
+    <div class="content">
+      <p class="valor">{{ valor3 }}</p>
+      <div class="nombre">
+        <p>{{ coloresTriangulo[2].nombre }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+component.ts triangulo:
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-triangulo',
+  templateUrl: './triangulo.component.html',
+  styleUrls: ['./triangulo.component.css'],
+})
+export class TrianguloComponent implements OnInit {
+  valor1: number = 0;
+  valor2: number = 0;
+  valor3: number = 0;
+
+  coloresTriangulo = [
+    { nombre: 'Amarillo', color: 'yellow' },
+    { nombre: 'Azul', color: 'blue' },
+    { nombre: 'Rojo', color: 'red' },
+  ];
+
+  colores = [
+    { nombre: 'Amarillo', color: 'yellow' },
+    { nombre: 'Azul', color: 'blue' },
+    { nombre: 'Rojo', color: 'red' },
+    { nombre: 'Verde', color: 'green' },
+    { nombre: 'Purpura', color: 'purple' },
+    { nombre: 'Naranja', color: 'orange' },
+    { nombre: 'Rosado', color: 'pink' },
+    { nombre: 'Cian', color: 'cyan' },
+    { nombre: 'Magenta', color: 'magenta' },
+    { nombre: 'Lima', color: 'lime' },
+    { nombre: 'Azul Cerceta', color: 'teal' },
+    { nombre: 'Indigo', color: 'indigo' },
+    { nombre: 'Plata', color: 'silver' },
+    { nombre: 'Oro', color: 'gold' },
+    { nombre: 'Violeta', color: 'violet' },
+    { nombre: 'Cafe', color: 'brown' },
+    { nombre: 'Azul Marino', color: 'navy' },
+    { nombre: 'Verde Oliva', color: 'olive' },
+    { nombre: 'Granate', color: 'maroon' },
+    { nombre: 'Agua Marina', color: 'aquamarine' },
+    { nombre: 'Coral', color: 'coral' },
+    { nombre: 'Carmesí', color: 'crimson' },
+    { nombre: 'Azul Oscuro', color: 'darkblue' },
+    { nombre: 'Fucsia', color: 'fuchsia' },
+    { nombre: 'Gris', color: 'grey' },
+    { nombre: 'Caqui', color: 'khaki' },
+    { nombre: 'Verde Claro', color: 'lightgreen' },
+    { nombre: 'Orquidea', color: 'orchid' },
+    { nombre: 'Ciruela', color: 'plum' },
+    { nombre: 'Salmon', color: 'salmon' },
+  ];
+
+  ngOnInit() {
+    this.actualizarValores();
+    setInterval(() => {
+      this.actualizarValores();
+      this.cambiarColores();
+    }, 5000);
+  }
+
+  actualizarValores() {
+    this.valor1 = this.generarNumeroAleatorio();
+    this.valor2 = this.generarNumeroAleatorio();
+    this.valor3 = this.generarNumeroAleatorio();
+  }
+
+  generarNumeroAleatorio(): number {
+    return Math.floor(Math.random() * 6) + 1;
+  }
+
+  cambiarColores() {
+    this.coloresTriangulo[0].color = this.generarColorAleatorio();
+    this.coloresTriangulo[1].color = this.generarColorAleatorio();
+    this.coloresTriangulo[2].color = this.generarColorAleatorio();
+
+    for (let index = 0; index < this.colores.length; index++) {
+      if (this.coloresTriangulo[0].color == this.colores[index].color) {
+        this.coloresTriangulo[0].nombre = this.colores[index].nombre;
+      }
+    }
+    for (let index = 0; index < this.colores.length; index++) {
+      if (this.coloresTriangulo[1].color == this.colores[index].color) {
+        this.coloresTriangulo[1].nombre = this.colores[index].nombre;
+      }
+    }
+    for (let index = 0; index < this.colores.length; index++) {
+      if (this.coloresTriangulo[2].color == this.colores[index].color) {
+        this.coloresTriangulo[2].nombre = this.colores[index].nombre;
+      }
+    }
+  }
+
+  generarColorAleatorio(): string {
+    const colorIndex = Math.floor(Math.random() * this.colores.length);
+    return this.colores[colorIndex].color;
+  }
+}
+
+
+html:
+<div style="text-align:center">
+  <app-triangulo></app-triangulo>
+</div>
